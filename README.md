@@ -1,4 +1,4 @@
-# tcl1 - A frontend for one-liner tcl scripts, as an alternative for AWK.
+### tcl1 - A frontend for one-liner tcl scripts, as an alternative for AWK.
 
 # Dependencies
 
