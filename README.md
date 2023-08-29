@@ -1,37 +1,41 @@
-tcl1 - frontend for one liner tcl scripts, as replacement for AWK.
+# tcl1 - A frontend for one-liner tcl scripts, as an alternative for AWK.
 
 # Dependencies
 
-- tcl 8.6
+- tcl 8.6+
 - tcllib (cmdline)
 
-# Options
+## Options
 
-- **-n** - loop over input lines, variable $_ contains current line
-- **-p** - loop over input lines and print result of last expression, variable $_ contains current line
-- **-I** - do not read file ~/.tcl1
+- **-n** - loop over input lines, variable ```$_``` contains current line
 
-# Examples
+- **-p** - loop over input lines and print result of last expression, variable ```$_``` contains current line
 
-Add folowing string to ~/.tcl1:
+- **-I** - do not read from the file ```~/.tcl1```
+
+## Examples
+
+Add the folowing string to the file ```~/.tcl1```:
+
 ```tcl
 interp alist {} str {} string
 ```
 
-This allow to cut command "string" to "str".
+This allows to cut commands from "```string```" to "```str```".
 
-Check, how tcl1 works:
+Check, how ```tcl1``` works:
 ```tcl
 tcl1 'puts {Tcl1 works!}'
 ```
 
-Iterate over input and print each line if it is a direcory name inside /:
-```tcl
+Iterate over input and print each line if it is a direcory name inside ```/```:
+
+```bash
 ls -1 / | tcl1 -n 'if {[file isdir /$_]} {puts "< $_ >"}' 
 ```
 
 Iterate over input and print each modified line:
-```tcl
+```bash
 ls -1 / | tcl1 -p 'str totitle $_'
 ```
 
