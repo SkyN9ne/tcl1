@@ -1,4 +1,4 @@
-#!/bin/sh
+#!usr/bin/env/sh
 # \
 exec tclsh8.6 "$0" ${1+"$@"}
 
